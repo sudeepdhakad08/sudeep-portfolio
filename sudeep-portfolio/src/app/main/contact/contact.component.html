@@ -1,0 +1,222 @@
+<section
+  id="contact"
+  class="bg-[#0f172a] px-5 py-20 text-white md:px-8 lg:px-16"
+>
+  <div class="mx-auto max-w-7xl">
+
+    <!-- Heading -->
+    <div class="mb-12 text-center">
+      <p
+        class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-blue-400"
+      >
+        Get In Touch
+      </p>
+
+      <h2 class="text-3xl font-bold sm:text-4xl">
+        Contact Me
+      </h2>
+
+      <p class="mx-auto mt-4 max-w-2xl text-gray-400">
+        Have a project, opportunity or just want to connect?
+        Feel free to send me a message.
+      </p>
+    </div>
+
+    <!-- Contact Content -->
+    <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+
+      <!-- Contact Information -->
+      <div
+        class="rounded-2xl border border-white/10 bg-[#0b1120] p-6 md:p-8"
+      >
+
+        <h3 class="text-2xl font-semibold">
+          Let's Connect
+        </h3>
+
+        <p class="mt-4 leading-7 text-gray-400">
+          I'm open to discussing Senior Angular Developer opportunities,
+          frontend projects and professional collaborations.
+        </p>
+
+        <!-- Email -->
+        <div class="mt-8">
+          <p class="text-sm text-gray-500">
+            Email
+          </p>
+
+          <a
+            href="mailto:sudeepdhakad08@gmail.com"
+            class="mt-2 inline-block break-all text-blue-400 transition hover:text-blue-300"
+          >
+            sudeepdhakad08&#64;gmail.com
+          </a>
+        </div>
+
+        <!-- Location -->
+        <div class="mt-6">
+          <p class="text-sm text-gray-500">
+            Location
+          </p>
+
+          <p class="mt-2 text-gray-300">
+            Bhopal, Madhya Pradesh, India
+          </p>
+        </div>
+
+        <!-- Social Links -->
+        <div class="mt-8 flex flex-wrap gap-3">
+
+          <!-- LinkedIn -->
+          <a
+            href="https://www.linkedin.com/in/sudeep-dhakad/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-lg border border-white/10 px-4 py-2 text-sm font-medium text-gray-300 transition hover:border-blue-500/40 hover:text-blue-400"
+          >
+            LinkedIn
+          </a>
+
+          <!-- GitHub -->
+          <a
+            href="https://github.com/sudeepdhakad08"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-lg border border-white/10 px-4 py-2 text-sm font-medium text-gray-300 transition hover:border-blue-500/40 hover:text-blue-400"
+          >
+            GitHub
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- Contact Form -->
+      <div
+        class="rounded-2xl border border-white/10 bg-[#0b1120] p-6 md:p-8"
+      >
+
+        <form
+          #contactForm
+          class="space-y-5"
+          (submit)="sendEmail(contactForm, $event)"
+        >
+
+          <!-- Name -->
+          <div>
+            <label
+              for="name"
+              class="mb-2 block text-sm font-medium text-gray-300"
+            >
+              Your Name
+            </label>
+
+            <input
+              id="name"
+              type="text"
+              name="name"
+              autocomplete="name"
+              placeholder="Enter your name"
+              required
+              class="w-full rounded-lg border border-white/10 bg-[#0f172a] px-4 py-3 text-white outline-none placeholder:text-gray-500 transition focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label
+              for="email"
+              class="mb-2 block text-sm font-medium text-gray-300"
+            >
+              Your Email
+            </label>
+
+            <input
+              id="email"
+              type="email"
+              name="email"
+              autocomplete="email"
+              placeholder="Enter your email"
+              required
+              class="w-full rounded-lg border border-white/10 bg-[#0f172a] px-4 py-3 text-white outline-none placeholder:text-gray-500 transition focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+            />
+          </div>
+
+          <!-- Subject -->
+          <div>
+            <label
+              for="subject"
+              class="mb-2 block text-sm font-medium text-gray-300"
+            >
+              Subject
+            </label>
+
+            <input
+              id="subject"
+              type="text"
+              name="subject"
+              autocomplete="off"
+              placeholder="Enter subject"
+              required
+              class="w-full rounded-lg border border-white/10 bg-[#0f172a] px-4 py-3 text-white outline-none placeholder:text-gray-500 transition focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+            />
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label
+              for="message"
+              class="mb-2 block text-sm font-medium text-gray-300"
+            >
+              Message
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="Write your message..."
+              required
+              class="w-full resize-y rounded-lg border border-white/10 bg-[#0f172a] px-4 py-3 text-white outline-none placeholder:text-gray-500 transition focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            [disabled]="isSending"
+            class="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition-all duration-200 hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            @if (isSending) {
+              Sending...
+            } @else {
+              Send Message →
+            }
+          </button>
+
+          <!-- Success Message -->
+          @if (messageSent) {
+            <div
+              class="rounded-lg border border-green-500/20 bg-green-500/10 px-4 py-3 text-center text-sm text-green-400"
+            >
+              ✓ Message sent successfully! I'll get back to you soon.
+            </div>
+          }
+
+          <!-- Error Message -->
+          @if (errorMessage) {
+            <div
+              class="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-center text-sm text-red-400"
+            >
+              {{ errorMessage }}
+            </div>
+          }
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
